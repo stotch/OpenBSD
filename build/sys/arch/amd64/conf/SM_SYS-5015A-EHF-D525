@@ -1,1 +1,1 @@
-include "arch/amd64/conf/SM_X7SPE-HF-D525"
+include		"../../amd64/conf/SM_X7SPE-HF-D525"

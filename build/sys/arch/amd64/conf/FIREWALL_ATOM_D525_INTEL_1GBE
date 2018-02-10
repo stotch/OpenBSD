@@ -1,2 +1,0 @@
-include "arch/amd64/conf/FIREWALL"
-include "arch/amd64/conf/SM_SYS-5015A-EHF-D525"

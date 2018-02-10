@@ -10,7 +10,6 @@
 # device.
 
 machine		amd64
-include		"../../noarch/conf/FIREWALL_NOARCH"
 maxusers	10			# estimated number of users
 
 option		USER_PCICONF	# user-space PCI configuration
@@ -338,7 +337,7 @@ atapiscsi* at wdc?
 atapiscsi* at pciide?
 
 # Networking devices
-em*	at pci?				# Intel Pro/1000 ethernet
+#em*	at pci?				# Intel Pro/1000 ethernet
 #ixgb*	at pci?				# Intel Pro/10Gb ethernet
 #ix*	at pci?				# Intel 82598EB 10Gb ethernet
 

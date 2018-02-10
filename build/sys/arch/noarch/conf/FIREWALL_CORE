@@ -1,14 +1,3 @@
-#	$OpenBSD: GENERIC,v 1.247 2017/09/26 01:46:47 jsg Exp $
-#
-#	Machine-independent option; used by all architectures for their
-#	GENERIC kernel
-
-option		DDB		# in-kernel debugger
-#option		DDBPROF		# ddb(4) based profiling
-#option		DDB_SAFE_CONSOLE # allow break into ddb during boot
-#makeoptions	DEBUG=""	# do not compile full symbol table
-#makeoptions	PROF="-pg"	# build profiled kernel
-#option		GPROF		# kernel profiling, kgmon(8)
 option		DIAGNOSTIC	# internal consistency checks
 option		KTRACE		# system call tracing, a la ktrace(1)
 option		ACCOUNTING	# acct(2) process accounting
@@ -20,7 +9,7 @@ option		PTRACE		# ptrace(2) system call
 #option		POOL_DEBUG	# pool corruption detection
 #option		VFSLCKDEBUG	# VFS locking checks
 
-option		CRYPTO		# Cryptographic framework
+option		CRYPTO		# Cryptographic framework (needed for IPSEC)
 
 option		SYSVMSG		# System V-like message queues
 option		SYSVSEM		# System V-like semaphores
@@ -28,9 +17,11 @@ option		SYSVSHM		# System V-like memory sharing
 
 #option		UVM_SWAP_ENCRYPT# support encryption of pages going to swap
 
+
+option		BUFCACHEPERCENT=0 # What percent of RAM to use as file system buffer (default: 20%)
 option		FFS		# UFS
 option		FFS2		# UFS2
-option		FFS_SOFTUPDATES	# Soft updates
+#option		FFS_SOFTUPDATES	# Soft updates
 option		UFS_DIRHASH	# hash large directories
 option		QUOTA		# UFS quotas
 #option		EXT2FS		# Second Extended Filesystem
@@ -41,14 +32,14 @@ option		MFS		# memory file system
 #option		UDF		# UDF (DVD) file system
 #option		MSDOSFS		# MS-DOS file system
 option		FIFO		# FIFOs; RECOMMENDED
-#option		TMPFS		# efficient memory file system
+option		TMPFS		# efficient memory file system
 #option		FUSE		# FUSE
 
 option		SOCKET_SPLICE	# Socket Splicing for TCP and UDP
 option		TCP_SACK	# Selective Acknowledgements for TCP
 option		TCP_ECN		# Explicit Congestion Notification for TCP
 option		TCP_SIGNATURE	# TCP MD5 Signatures, for BGP routing sessions
-#option		TCP_FACK	# Forward Acknowledgements for TCP
+option		TCP_FACK	# Forward Acknowledgements for TCP
 
 option		INET6		# IPv6
 option		IPSEC		# IPsec

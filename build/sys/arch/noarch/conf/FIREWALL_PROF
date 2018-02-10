@@ -1,0 +1,5 @@
+option		DDB		# in-kernel debugger
+option		DDBPROF		# ddb(4) based profiling
+option		DDB_SAFE_CONSOLE # allow break into ddb during boot
+makeoptions	PROF="-pg"	# build profiled kernel
+option		GPROF		# kernel profiling, kgmon(8)

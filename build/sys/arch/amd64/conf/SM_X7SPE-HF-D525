@@ -1,1 +1,4 @@
 option  MULTIPROCESSOR
+
+# Networking devices
+em*	at pci?				# Intel Pro/1000 ethernet

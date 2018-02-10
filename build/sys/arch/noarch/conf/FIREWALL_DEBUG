@@ -1,0 +1,2 @@
+#makeoptions	DEBUG=""	# do not compile full symbol table
+option		DEBUG
