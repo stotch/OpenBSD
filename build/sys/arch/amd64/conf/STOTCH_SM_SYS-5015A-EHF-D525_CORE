@@ -1,0 +1,89 @@
+# Root components
+mainbus0 at root
+mpath0	at root
+
+# Mainbus components
+bios0	at mainbus?
+cpu0	at mainbus?
+ioapic*	at mainbus?
+pci*	at mainbus0
+
+# BIOS components
+acpi0		at bios0
+
+# ACPI components
+acpibtn*	at acpi?
+acpicpu*	at acpi?
+acpihpet*	at acpi?
+acpimadt0	at acpi?
+acpimcfg*	at acpi?
+acpiprt*	at acpi?
+acpitimer*	at acpi?
+
+# PCI components
+ppb*	at pci?			# PCI-PCI bridges
+pci*	at ppb?			# PCI off of the PCI-to-PCI bridge
+pcib*	at pci?			# PCI-ISA bridge
+ichiic*	at pci?			# Intel ICH SMBus controller
+ehci*	at pci?			# Enhanced Host Controller
+uhci*	at pci?			# Universal Host Controller (Intel)
+pchb*	at pci?			# PCI-Host bridges
+pciide* at pci? flags 0x0000
+pcib*	at pci?			# PCI-ISA bridge
+isa0	at pcib?		# ISA off of the PCI-to-ISA bridge
+vga*	at pci?
+
+# ISA components
+isadma0	at isa?
+com0	at isa? port 0x3f8 irq 4	# standard PC serial ports
+com1	at isa? port 0x2f8 irq 3
+com2	at isa? port 0x3e8 irq 5
+com3	at isa? disable port 0x2e8 irq 9 # (conflicts with some video cards)
+pckbc0		at isa? flags 0x00	# PC keyboard controller
+pckbd*		at pckbc?		# PC keyboard
+pcppi0		at isa?
+spkr0	at pcppi?		# PC speaker
+wbsio*	at isa? port 0x2e	# Winbond LPC Super I/O
+
+# ICH components
+iic*	at ichiic?
+
+# IIC
+lm*	at iic?			# National Semiconductor LM78/79
+spdmem*	at iic?			# SPD memory eeproms
+
+# EHCI components
+usb*	at ehci?
+
+# UHCI components
+usb*	at uhci?
+
+# USB components
+uhub*   at usb?			# USB Hub
+
+# UHub components
+uhidev*	at uhub?		# Human Interface Devices
+umass*	at uhub?		# USB Mass Storage devices
+
+# SCSI components
+scsibus* at scsi?
+sd*	at scsibus?			# SCSI disk drives
+
+# ATA/IDE components
+wd*	at pciide? flags 0x0000
+
+# Display
+wsdisplay0	at vga? console 1
+
+# SD/MMC cards and related solid state media
+sdhc*		at acpi?
+sdhc*	at pci?			# SD Host Controller
+sdmmc*	at sdhc?		# SD/MMC bus
+sdmmc*	at rtsx?		# SD/MMC bus
+
+# Human Interface Devices
+wskbd*		at pckbd? mux 1
+wskbd*	at ukbd? mux 1
+uhidev*	at uhub?		# Human Interface Devices
+uhid*	at uhidev?		# USB generic HID support
+ukbd*	at uhidev?		# USB keyboard

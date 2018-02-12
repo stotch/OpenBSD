@@ -1,4 +1,4 @@
-include		"../../amd64/conf/CORE"
+include		"../../amd64/conf/STOTCH_SM_SYS-5015A-EHF-D525_CORE"
 include		"../../noarch/conf/FIREWALL_CORE"
 #include		"../../noarch/conf/FIREWALL_PROF" # Profiling kernel
 #include		"../../noarch/conf/FIREWALL_DEBUG" # Debug kernel
